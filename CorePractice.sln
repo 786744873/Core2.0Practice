@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01教程", "01教程", "{18D40F79-5F8B-45DB-A87E-A604A03D3AA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01创建 Razor 页面 Web 应用", "01创建 Razor 页面 Web 应用", "{38F29C1D-A1A5-4B6E-AB10-52131F2801F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01Razor页面入门", "01Razor页面入门", "{F8E3CE16-F8FC-4153-AC79-A4847229D3B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesMovie", "RazorPagesMovie\RazorPagesMovie.csproj", "{A7BFDA32-DC36-4B63-A340-A83E6C561E5B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7BFDA32-DC36-4B63-A340-A83E6C561E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BFDA32-DC36-4B63-A340-A83E6C561E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BFDA32-DC36-4B63-A340-A83E6C561E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BFDA32-DC36-4B63-A340-A83E6C561E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38F29C1D-A1A5-4B6E-AB10-52131F2801F2} = {18D40F79-5F8B-45DB-A87E-A604A03D3AA5}
+		{F8E3CE16-F8FC-4153-AC79-A4847229D3B7} = {38F29C1D-A1A5-4B6E-AB10-52131F2801F2}
+		{A7BFDA32-DC36-4B63-A340-A83E6C561E5B} = {F8E3CE16-F8FC-4153-AC79-A4847229D3B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C134430-C931-47C1-AB42-9A5A3BC38565}
