@@ -53,7 +53,7 @@ namespace RazorPagesMovie.Pages.Movies
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MovieExists(Movie.ID))
+                if (!_context.Movie.Any(e => e.ID == Movie.ID))
                 {
                     return NotFound();
                 }
@@ -66,9 +66,9 @@ namespace RazorPagesMovie.Pages.Movies
             return RedirectToPage("./Index");
         }
 
-        private bool MovieExists(int id)
-        {
-            return _context.Movie.Any(e => e.ID == id);
-        }
+        //private bool MovieExists(int id)
+        //{
+        //    return _context.Movie.Any(e => e.ID == id);
+        //}
     }
 }

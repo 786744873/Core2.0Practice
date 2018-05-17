@@ -11,9 +11,10 @@ using System;
 namespace RazorPagesMovie.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    partial class MovieContextModelSnapshot : ModelSnapshot
+    [Migration("20180517064604_Rating")]
+    partial class Rating
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,47 +26,19 @@ namespace RazorPagesMovie.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasMaxLength(30);
+                    b.Property<string>("Genre");
 
                     b.Property<decimal>("Price");
 
-                    b.Property<string>("Rating")
-                        .IsRequired()
-                        .HasMaxLength(5);
+                    b.Property<string>("Rating");
 
                     b.Property<DateTime>("ReleaseDate");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(60);
+                    b.Property<string>("Title");
 
                     b.HasKey("ID");
 
                     b.ToTable("Movie");
-                });
-
-            modelBuilder.Entity("RazorPagesMovie.Models.Schedule", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("PrivateSchedule");
-
-                    b.Property<long>("PrivateScheduleSize");
-
-                    b.Property<string>("PublicSchedule");
-
-                    b.Property<long>("PublicScheduleSize");
-
-                    b.Property<string>("Title");
-
-                    b.Property<DateTime>("UploadDT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Schedule");
                 });
 #pragma warning restore 612, 618
         }

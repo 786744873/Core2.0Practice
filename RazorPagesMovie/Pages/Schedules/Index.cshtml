@@ -1,0 +1,62 @@
+﻿@page
+@model RazorPagesMovie.Pages.Schedules.IndexModel
+@{
+    ViewData["Title"] = "Schedules";
+}
+
+<h2>Schedules</h2>
+<hr />
+
+<h3>Upload Schedules</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="FileUpload.Title" class="control-label"></label>
+                <input asp-for="FileUpload.Title" type="text" class="form-control" />
+                <span asp-validation-for="FileUpload.Title" class="text-danger"></span>
+            </div>
+            <div class="form-control">
+                <label asp-for="FileUpload.UploadPublicSchedule" class="control-label"></label>
+                <input asp-for="FileUpload.UploadPublicSchedule" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.UploadPublicSchedule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileUpload.UploadPrivateSchedule" class="control-label"></label>
+                <input asp-for="FileUpload.UploadPrivateSchedule" class="form-control" type="file" />
+                <span asp-validation-for="FileUpload.UploadPrivateSchedule" class="text-danger"></span>
+            </div>
+            <input type="submit" class="btn btn-default" />
+        </form>
+    </div>
+</div>
+
+<h3>Loaded Schedules</h3>
+<div class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(model=>model.Schedule[0].Title)</th>
+            <th>@Html.DisplayNameFor(model=>model.Schedule[0].UploadDT)</th>
+            <th class="text-center">@Html.DisplayNameFor(model=>model.Schedule[0].PublicScheduleSize)</th>
+            <th class="text-center">@Html.DisplayNameFor(model=>model.Schedule[0].PrivateScheduleSize)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Schedule)
+        {
+        <tr>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+            <td>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        }
+    </tbody>
+</div>
+
