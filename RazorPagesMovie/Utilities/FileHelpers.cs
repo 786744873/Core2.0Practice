@@ -74,6 +74,14 @@ namespace RazorPagesMovie.Utilities
             {
                 try
                 {
+                    //上传文件
+                    var fileSavePath = Path.Combine(Directory.GetCurrentDirectory().Split("bin")[0], "UploadFile", DateTime.Now.ToString("yyyyMMddHHmmss") + "." + Path.GetExtension(formFile.Name));
+                    using (var fileStream = new FileStream(fileSavePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(fileStream);
+                    }
+
+
                     string fileContents;
                     using (var reader=new StreamReader(formFile.OpenReadStream(),new UTF8Encoding(encoderShouldEmitUTF8Identifier:false,throwOnInvalidBytes:true),detectEncodingFromByteOrderMarks:true))
                     {
@@ -87,6 +95,8 @@ namespace RazorPagesMovie.Utilities
                             modelState.AddModelError(formFile.Name, $"The {filedDisplayName} file ({fileName}) is empty");
                         }
                     }
+
+                    
                 }
                 catch (Exception ex)
                 {
