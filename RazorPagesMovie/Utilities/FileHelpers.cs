@@ -75,7 +75,11 @@ namespace RazorPagesMovie.Utilities
                 try
                 {
                     //上传文件
-                    var fileSavePath = Path.Combine(Directory.GetCurrentDirectory().Split("bin")[0], "UploadFile", DateTime.Now.ToString("yyyyMMddHHmmss") + "." + Path.GetExtension(formFile.Name));
+                    var fileSavePath = Path.Combine(Directory.GetCurrentDirectory().Split("bin")[0], "UploadFile", DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(formFile.FileName));
+                    if (!Directory.Exists(fileSavePath))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(fileSavePath));
+                    }
                     using (var fileStream = new FileStream(fileSavePath, FileMode.Create))
                     {
                         await formFile.CopyToAsync(fileStream);
